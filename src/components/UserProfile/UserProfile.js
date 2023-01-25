@@ -14,8 +14,10 @@ function UserProfile () {
     return (
         <div>
          <img
+             //src={`../../${authData.player.avatar}`}
              src={authData.player.avatar}
-			alt={authData.player.name}
+
+			 alt={authData.player.name}
 		 />
 		 <div>
 			<h3>{authData.player.name}</h3>
