@@ -53,7 +53,7 @@ import React, {
        sessions.login(data)
         .then(data => {
           setAuthData(data)
-          navigate('/games');
+          navigate('games');
         })
         .catch(error => console.log(error))
        // .finally(() => setLoading(false));

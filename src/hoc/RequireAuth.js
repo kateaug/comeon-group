@@ -8,7 +8,7 @@ function RequireAuth({ children }){
     const { authData } = useAuth()
  
     if (authData.status !== 'success') {
-        return <Navigate to='/login' state={{ from: location.pathname }} />
+        return <Navigate to='/' state={{ from: location.pathname }} />
     }
     return children
 }

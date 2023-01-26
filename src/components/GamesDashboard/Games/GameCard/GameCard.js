@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { string, arrayOf, number, shape} from 'prop-types';
 import css from './GameCard.module.scss'
 
 function GameCard({ game }) {
-
-    console.log(game)
+    const navigate = useNavigate();
 
  return (
     <div className={css.GameCard}>
@@ -15,7 +16,9 @@ function GameCard({ game }) {
         <div className={css.GameCardDetails}>
             <p>{game.name}</p>
             <p>{game.description}</p>
-            <button>Play</button>
+          
+              <button onClick={() => navigate(`${game.code}`)}>Play</button>
+       
         </div>
     </div>
  )
