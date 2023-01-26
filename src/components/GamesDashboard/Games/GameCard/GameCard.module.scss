@@ -1,0 +1,20 @@
+.GameCard {
+    padding: 10px 0;
+    display: flex;
+    gap: 5px;
+
+    // img {
+
+    // }
+
+    .GameCardDetails {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        button {
+            align-self: flex-end;
+            width: 30%;
+        }
+    }
+}

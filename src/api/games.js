@@ -8,4 +8,4 @@ export async function getAllGames() {
 export async function getGamesCategories() {
     const response = await axios.get('http://localhost:3001/categories')
     return response.data;
-  }
+}

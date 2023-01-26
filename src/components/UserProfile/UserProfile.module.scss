@@ -1,0 +1,15 @@
+.UserProfile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    .UserProfileDetails {
+        display: flex;
+
+        img {
+            border-radius: 50%;
+            border: 2px solid lightgray;
+            margin-right: 20px;
+        }
+    }
+}

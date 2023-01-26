@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import * as games from '../../../api/games';
 import GameCard from './GameCard/GameCard';
+import GamesCategories from '../GamesCategories/GamesCategories';
+import css from './Games.module.scss';
+import GamesSearch from '../GamesSearch/GamesSearch';
 
 
 function Games () {
 
-    const [allGames, setAllGames] = useState()
-
+    const [allGames, setAllGames] = useState([])
+    const [categoryId, setCategoryId] = useState('');
+    const [searchTerm, setSearchTem] = useState('');
+  
+    
     useEffect(() => {
         games.getAllGames()
         .then(data => {
@@ -14,13 +20,49 @@ function Games () {
         })
         .catch(error => console.log(error))
     }, [])
-      
+
+    const filteredGames = useMemo(() => {
+        if (categoryId === '') {
+        if (searchTerm === '') {
+            return allGames;
+        } else {
+            return allGames.filter((game) => {
+            const searchFields = game.name.toLowerCase();
+            return searchFields.includes(searchTerm.toLowerCase());
+            });
+        }
+        }
+
+        return allGames.filter((game) => {
+        const gameCategory = game.categoryIds.map((val) => val.toString());
+        return gameCategory.includes(categoryId);
+        });
+
+    }, [categoryId, searchTerm, allGames]);
+
+    useEffect(() => {
+        if (searchTerm !== '') {
+            setCategoryId('');
+        }
+    }, [searchTerm]);
+
+  console.log('categoryId THUS ',  categoryId)
+
+  console.log('searchTerm',  searchTerm)
+
+  console.log('filteredGames ', filteredGames)
+
     return (
-        <div>
-        {allGames && allGames.map(game => (
-          <GameCard game={game} key={game.name} />
-        ))} 
-         </div>    
+        <div className={css.Games}>
+          <div className={css.GamesCards}>
+            <GamesSearch searchGames={(e) => setSearchTem(e.target.value)} searchTerm={searchTerm} />
+
+            {filteredGames && filteredGames.map(game => (
+              <GameCard game={game} key={game.name} />
+             ))}
+          </div>   
+          <GamesCategories selectCategoryType={(e) => setCategoryId(e.target.id)} categoryType={categoryId}/> 
+        </div>    
     )
 }
 

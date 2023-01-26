@@ -1,5 +1,6 @@
 import React from 'react';
 import useAuth from '../../context/AuthContext';
+import css from './UserProfile.module.scss'
 
 
 function UserProfile () {
@@ -12,16 +13,14 @@ function UserProfile () {
     };
 
     return (
-        <div>
-         <img
-             //src={`../../${authData.player.avatar}`}
-             src={authData.player.avatar}
-
-			 alt={authData.player.name}
-		 />
-		 <div>
-			<h3>{authData.player.name}</h3>
-			<p>{authData.player.event}</p>
+        <div className={css.UserProfile}>
+         <div className={css.UserProfileDetails}>
+            <img
+                src={authData.player.avatar}
+                alt={authData.player.name}
+            />
+            <h3>{authData.player.name}</h3>
+            <p>{authData.player.event}</p>
 		 </div>
             <button type='submit' onClick={handleLogout}>logout</button>
         </div>

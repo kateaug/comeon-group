@@ -1,0 +1,15 @@
+.GamesCategories {
+    display: flex;
+    flex-direction: column;
+
+    .GamesCategoriesBtn {
+        text-transform: uppercase;
+        font-weight: bold;
+        background: none;
+        border: none;
+        margin: 0;
+        padding: 10px 20px;
+        cursor: pointer;
+        text-align: left;
+    }
+}
