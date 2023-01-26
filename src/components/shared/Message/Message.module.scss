@@ -1,0 +1,25 @@
+.Message {
+    font-size: 12px;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+  }
+  .Message svg {
+    height: 20px;
+    width: 20px;
+    border: 1px solid #dedede;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 1px 1px 4px 3px rgba(0, 0, 0, 0.03);
+    margin: 0 10px 0 0;
+  }
+  
+  .Success {
+    color: #7fffd4;
+  }
+  .Info {
+    color: #201d1d;
+  }
+  .Error {
+    color: #f01414;
+  }

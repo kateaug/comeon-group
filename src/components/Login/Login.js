@@ -1,49 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import css from './Login.module.scss';
 import useAuth from '../../context/AuthContext';
+import Message from '../shared/Message/Message';
+import Spinner from '../shared/Spinner/Spinner';
+import { notEmptyObject } from '../../helpers';
 
 function Login () {
-const { login } = useAuth();
+const { login, error, loading } = useAuth();
 
 const [playerData, setPlayerData] = useState({
     username: '',
     password: ''
- })  
+})
 
+console.log('error', error)
  
 const { username, password } = playerData;
 
 
  const onInputChange = e => {
-   const inputVal = e.target.value;
-   const inputId = e.target.id;
-
-
-   setPlayerData(prev => {
-        return {
-            ...prev,
-            username: inputId === 'username' ? inputVal : prev.username,
-            password: inputId === 'password' ? inputVal : prev.password
-        }
+    setPlayerData({
+        ...playerData,
+        [e.target.name]: e.target.value.replace(/\s/g, '')
     })
 
  };
 
   const handleSubmit =  (event) => {
     event.preventDefault();
-   // const storedUsername = localStorage.setItem('playerUsername', JSON.stringify(playerData.username));
-
     login(playerData);
- }    
+
+ }
+ 
+ useEffect(() => {
+    notEmptyObject(error) && setPlayerData({
+        username: '',
+        password: ''
+    })
+ }, [error]);
+
+ console.log('playerData', playerData)
+ console.log('loading', loading)
+
 
 
  return (
     <div className={css.Login}>
+        {loading ? <Spinner /> : (
         <form onSubmit={handleSubmit} className={css.LoginForm}>
             <label className={css.LoginLabel} htmlFor='username'>username</label>
             <input
             // required='required'
-             id='username'
+             name='username'
              type='text'
              className={css.LoginInput}
              value={username}
@@ -54,7 +62,7 @@ const { username, password } = playerData;
             <label className={css.LoginLabel} htmlFor='password'>password</label>
             <input
             // required
-             id='password'
+             name='password'
              type='password'
              className={css.LoginInput}
              value={password}
@@ -64,7 +72,8 @@ const { username, password } = playerData;
             </input>
             <button type='submit'>log in</button>
         </form>
-
+        )}
+        {notEmptyObject(error) && <Message kind='error' />}
     </div>
  )
 

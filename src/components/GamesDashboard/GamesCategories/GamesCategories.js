@@ -14,8 +14,6 @@ function GamesCategories({ categoryType, selectCategoryType }) {
         .catch(error => console.log(error))
     }, [])
 
-    console.log('gamesCategories', gamesCategories)
-
 	return (
 		<div className={css.GamesCategories}>
 			<h2>Categories</h2>

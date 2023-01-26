@@ -7,18 +7,19 @@ import React, {
   import { useNavigate } from 'react-router-dom';
   import * as sessions from '../api/sessions';
   
-  const initialContext = {
-    user: {
-        player: {
-            name: '',
-            avatar: '',
-            event: ''
-        },
-        status: ''
-    },
-    login: () => {},
-    logout: () => {}
-  }
+  // const initialContext = {
+  //   user: {
+  //       player: {
+  //           name: '',
+  //           avatar: '',
+  //           event: ''
+  //       },
+  //       status: ''
+  //   },
+  //   login: () => {},
+  //   logout: () => {}
+  // }
+  
 
   const getInitialState = () => {
     const initialAuthData = localStorage.getItem('authData') !== undefined ? JSON.parse(localStorage.getItem('authData')) : {};
@@ -30,11 +31,15 @@ import React, {
     return initialUsername;
   }
   
-  const AuthContext = createContext(initialContext);
-  
+  //const AuthContext = createContext(initialContext);
+  const AuthContext = createContext({});
+
   export function AuthProvider({ children }) {
-   const [authData, setAuthData] = useState(getInitialState)
-   const [username, setUsername] = useState(getInitialUsername)
+   const [authData, setAuthData] = useState(getInitialState);
+   const [username, setUsername] = useState(getInitialUsername);
+   const [error, setError] = useState({});
+   const [loading, setLoading] = useState(false);
+
    
    const navigate = useNavigate();
 
@@ -47,29 +52,38 @@ import React, {
 
 
     function login(data) {
-     // setLoading(true);
+       setLoading(true);
        setUsername(data.username)
 
        sessions.login(data)
         .then(data => {
           setAuthData(data)
+          setError({})
           navigate('games');
         })
-        .catch(error => console.log(error))
-       // .finally(() => setLoading(false));
+        .catch(error => 
+          setError(error)
+        )
+       .finally(() => setLoading(false));
     }
   
     function logout(data) {
+      setLoading(true);
       sessions.logout(data)
       .then(() => { 
         setAuthData({})
         setUsername('')
-      });
+        setError({})
+      })
+      .catch(error => 
+        setError(error)
+      )
+     .finally(() => setLoading(false));
     }
   
 
     return (
-      <AuthContext.Provider value={{ authData, login, logout, username }}>
+      <AuthContext.Provider value={{ authData, login, logout, username, error, loading }}>
         {children}
       </AuthContext.Provider>
     );
