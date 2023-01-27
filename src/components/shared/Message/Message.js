@@ -17,10 +17,10 @@ const Message = props => {
       kind = css.Info;
   }
 
+  console.log(props)
   function defaultMessage(kind) {
     if (kind === 'error') {
-      return `Failed to retrieve. 
-      If the problem persists after reloading the page, please contact the support.`;
+      return `Something went wrong... Please try again.`;
     }
     return '';
   }

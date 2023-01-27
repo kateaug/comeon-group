@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 
 const Spinner = ({
   padding = '20px 0 20px 5px',
-  size = '100px',
+  size = '90px',
   fill = '#8caa37'
 }) => (
   <div style={{ padding }}>
