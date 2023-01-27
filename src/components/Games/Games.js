@@ -5,6 +5,7 @@ import GamesCategories from './GamesCategories/GamesCategories';
 import UserProfile from './../UserProfile/UserProfile';
 import GamesSearch from './GamesSearch/GamesSearch';
 import css from './Games.module.scss';
+import { isEmptyArray } from '../../helpers';
 
 
 
@@ -58,6 +59,7 @@ function Games () {
                     {filteredGames && filteredGames.map(game => (
                     <GameCard game={game} key={game.name} />
                     ))}
+                    {isEmptyArray(filteredGames) && <span>There are no games to display.</span>}
                 </div>   
                 <GamesCategories selectCategoryType={(e) => setCategoryId(e.target.id)} categoryType={categoryId}/> 
           </div> 

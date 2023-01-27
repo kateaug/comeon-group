@@ -6,32 +6,18 @@ import React, {
   } from 'react';
   import { useNavigate } from 'react-router-dom';
   import * as sessions from '../api/sessions';
+  import { getLocalStorageItem } from '../helpers';
   
-  // const initialContext = {
-  //   user: {
-  //       player: {
-  //           name: '',
-  //           avatar: '',
-  //           event: ''
-  //       },
-  //       status: ''
-  //   },
-  //   login: () => {},
-  //   logout: () => {}
-  // }
-  
-
   const getInitialState = () => {
-    const initialAuthData = localStorage.getItem('authData') !== undefined ? JSON.parse(localStorage.getItem('authData')) : {};
+    const initialAuthData = getLocalStorageItem('authData') !== undefined ? getLocalStorageItem('authData') : {};
     return initialAuthData;
   };
 
   const getInitialUsername = () => {
-    const initialUsername = localStorage.getItem('playerUsername') !== undefined ? JSON.parse(localStorage.getItem('playerUsername')) : '';
+    const initialUsername = getLocalStorageItem('playerUsername') !== undefined ? getLocalStorageItem('playerUsername') : '';
     return initialUsername;
   }
   
-  //const AuthContext = createContext(initialContext);
   const AuthContext = createContext({});
 
   export function AuthProvider({ children }) {

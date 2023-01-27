@@ -1,33 +1,50 @@
 .GamesCategories {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
 
     h2 {
        border-bottom: 1px solid #dbd8d8;
 
     }
 
-    .GamesCategoriesBtn {
-        text-transform: uppercase;
-        font-weight: bold;
-        background: none;
-        border: none;
-        margin: 0;
-        padding: 10px 20px;
-        cursor: pointer;
-        text-align: left;
-
-        &:hover {
-            background-color: #abc369;
-            color: #ffffff;
-        } 
-
-        &:focus {
-            outline: 0;
-            background-color: #93a75a;
-            color: #ffffff;
+    .GamesCategoriesWrapper {
+        display: flex;
+        justify-content: space-between;
+        
+        .GamesCategoriesBtn {
+            text-transform: uppercase;
+            font-weight: bold;
+            background: none;
+            border: none;
+            margin: 0;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-align: left;
+    
+            &:hover {
+                background-color: #abc369;
+                color: #ffffff;
+            } 
+    
+            &:focus {
+                outline: 0;
+                background-color: #93a75a;
+                color: #ffffff;
+            }
+    
         }
 
+    }
+
+    
+}
+
+@media (min-width:801px) { 
+    .GamesCategories {
+        width: 30%;
+        .GamesCategoriesWrapper { 
+          flex-direction: column;
+        }
     }
 }

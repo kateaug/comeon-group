@@ -17,8 +17,9 @@ function GamesCategories({ categoryType, selectCategoryType }) {
 	return (
 		<div className={css.GamesCategories}>
 			<h2>Categories</h2>
+            <div className={css.GamesCategoriesWrapper}>
             {gamesCategories && gamesCategories.map(category => (
-               <button 
+               <div 
                 key={category.name}
                 id={category.id}
                 value={categoryType}
@@ -27,8 +28,9 @@ function GamesCategories({ categoryType, selectCategoryType }) {
                 onClick={selectCategoryType}
                 >
                  {category.name}
-               </button>
+               </div>
             ))}
+            </div>
 		</div>
 	);
 }
