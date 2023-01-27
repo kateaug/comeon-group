@@ -1,11 +1,22 @@
 .SelectedGame {
     height: 100%;
 
+    button {
+        margin-bottom: 5px;
+    }
+
     .SelectedGameContainer {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         padding-top: 15px;
+
+        div {
+            width: 100%;
+               iframe {
+                    width: 100%;
+                }
+        }
     }
 }

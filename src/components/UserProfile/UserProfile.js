@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../../context/AuthContext';
 import css from './UserProfile.module.scss'
+import Button from '../shared/Button/Button';
 
 
 function UserProfile () {
@@ -19,10 +20,12 @@ function UserProfile () {
                 src={authData.player.avatar}
                 alt={authData.player.name}
             />
-            <h3>{authData.player.name}</h3>
-            <p>{authData.player.event}</p>
+            <div>
+                <h2>{authData.player.name}</h2>
+                <p>{authData.player.event}</p>
+            </div>
 		 </div>
-            <button type='submit' onClick={handleLogout}>logout</button>
+         <Button kind='primary' type='submit' onClick={handleLogout} text='log out' />
         </div>
     )
 }

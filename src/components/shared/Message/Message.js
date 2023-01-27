@@ -17,7 +17,6 @@ const Message = props => {
       kind = css.Info;
   }
 
-  console.log(props)
   function defaultMessage(kind) {
     if (kind === 'error') {
       return `Something went wrong... Please try again.`;

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import * as games from '../../../api/games';
+import * as games from '../../api/games';
 import GameCard from './GameCard/GameCard';
-import GamesCategories from '../GamesCategories/GamesCategories';
+import GamesCategories from './GamesCategories/GamesCategories';
+import UserProfile from './../UserProfile/UserProfile';
+import GamesSearch from './GamesSearch/GamesSearch';
 import css from './Games.module.scss';
-import GamesSearch from '../GamesSearch/GamesSearch';
+
 
 
 function Games () {
@@ -46,13 +48,19 @@ function Games () {
 
     return (
         <div className={css.Games}>
-          <div className={css.GamesCards}>
-            <GamesSearch searchGames={(e) => setSearchTem(e.target.value)} searchTerm={searchTerm} />
-            {filteredGames && filteredGames.map(game => (
-              <GameCard game={game} key={game.name} />
-             ))}
-          </div>   
-          <GamesCategories selectCategoryType={(e) => setCategoryId(e.target.id)} categoryType={categoryId}/> 
+           <div className={css.GamesProfile}>
+                <UserProfile /> 
+                <GamesSearch searchGames={(e) => setSearchTem(e.target.value)} searchTerm={searchTerm} />
+           </div>
+           <div className={css.GamesDashboard}> 
+                <div className={css.GamesCards}>
+                <h2>Games</h2>
+                    {filteredGames && filteredGames.map(game => (
+                    <GameCard game={game} key={game.name} />
+                    ))}
+                </div>   
+                <GamesCategories selectCategoryType={(e) => setCategoryId(e.target.id)} categoryType={categoryId}/> 
+          </div> 
         </div>    
     )
 }

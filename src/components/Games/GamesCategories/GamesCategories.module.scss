@@ -1,6 +1,12 @@
 .GamesCategories {
     display: flex;
     flex-direction: column;
+    width: 30%;
+
+    h2 {
+       border-bottom: 1px solid #dbd8d8;
+
+    }
 
     .GamesCategoriesBtn {
         text-transform: uppercase;
@@ -11,5 +17,17 @@
         padding: 10px 20px;
         cursor: pointer;
         text-align: left;
+
+        &:hover {
+            background-color: #abc369;
+            color: #ffffff;
+        } 
+
+        &:focus {
+            outline: 0;
+            background-color: #93a75a;
+            color: #ffffff;
+        }
+
     }
 }

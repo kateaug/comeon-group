@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import Button from '../../shared/Button/Button';
 import css from './SelectedGame.module.scss';
 
 function SelectedGame () {
@@ -9,15 +10,13 @@ function SelectedGame () {
     useEffect(() => 
       window.comeon.game.launch(code),
 	[code]);
-
-    console.log('code', code)
     return (
-        <div className={css.SelectedGame}>
-				<button onClick={() => navigate(-1)}>Go back</button>
-			<div className={css.SelectedGameContainer}>
-				<div id='game-launch' />
-        	</div>
-		</div>
+      <div className={css.SelectedGame}>
+          <Button iconBack onClick={() => navigate(-1)} type='submit' kind='secondary' text='go back' />
+          <div className={css.SelectedGameContainer}>
+             <div id='game-launch' />
+          </div>
+		 </div>
     )
 }
 

@@ -3,6 +3,7 @@ import css from './Login.module.scss';
 import useAuth from '../../context/AuthContext';
 import Message from '../shared/Message/Message';
 import Spinner from '../shared/Spinner/Spinner';
+import Button from '../shared/Button/Button';
 import { notEmptyObject } from '../../helpers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
@@ -15,26 +16,22 @@ const { login, error, loading } = useAuth();
 const [playerData, setPlayerData] = useState({
     username: '',
     password: ''
-})
-
-console.log('error', error)
+});
  
 const { username, password } = playerData;
 
 
- const onInputChange = e => {
+const onInputChange = e => {
     setPlayerData({
         ...playerData,
         [e.target.name]: e.target.value.replace(/\s/g, '')
     })
+};
 
- };
-
-  const handleSubmit =  (event) => {
+const handleSubmit =  (event) => {
     event.preventDefault();
     login(playerData);
-
- }
+};
  
  useEffect(() => {
     notEmptyObject(error) && setPlayerData({
@@ -76,7 +73,7 @@ const { username, password } = playerData;
                 />
                 <FontAwesomeIcon icon={faLock} />
             </label>
-            <button disabled={emptyData} type='submit' className={css.LoginBtn}>login</button>
+            <Button kind='primary' disabled={emptyData} type='submit' text='log in' />
             {notEmptyObject(error) && <Message kind='error' /> }
         </form>
         )}

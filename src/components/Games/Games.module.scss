@@ -1,0 +1,40 @@
+.Games {
+    
+    .GamesProfile {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
+    .GamesDashboard {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 30px;
+
+        .GamesCards {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+
+            h2 {
+               border-bottom: 1px solid #dbd8d8;
+            }
+        }
+    }
+
+    
+}
+
+@media (min-width:801px) { 
+    .Games {
+        .GamesProfile {
+            flex-direction: row;
+        }
+
+        .GamesDashboard  {
+            flex-direction: row;
+        }
+    }
+}

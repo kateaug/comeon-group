@@ -12,13 +12,14 @@ function GamesCategories({ categoryType, selectCategoryType }) {
             setGamesCategories(data)
         })
         .catch(error => console.log(error))
-    }, [])
+    }, []);
 
 	return (
 		<div className={css.GamesCategories}>
 			<h2>Categories</h2>
             {gamesCategories && gamesCategories.map(category => (
-               <button key={category.name}
+               <button 
+                key={category.name}
                 id={category.id}
                 value={categoryType}
                 type='button'

@@ -32,10 +32,9 @@
             padding: 10px 10px 10px 30px;
             width: 100%;
             line-height: 1.25;
-            color: #55595c;
             background-image: none;
             background-clip: padding-box;
-            border: 1px solid rgb(219, 216, 216);
+            border: 1px solid #dbd8d8;
             border-radius: 3px;
             transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
             position: relative;
@@ -43,38 +42,6 @@
             &:focus {
                 outline: 0;
                 border-bottom-color: #8caa37;
-            }
-        }
-
-        .LoginBtn {
-            padding: 8px 50px;
-            margin-top: 10px;
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: #fff;
-            vertical-align: middle;
-            white-space: nowrap;
-            background-color: #8caa37;
-            border: 1px solid transparent;
-            box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
-            cursor: pointer;
-            user-select: none;
-            transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
-           
-            &:focus,
-            &:hover {
-                background-color: #abc369;
-                box-shadow: 0 18px 35px rgba(50, 50, 93, 0.1), 0 8px 15px rgba(0, 0, 0, 0.07);
-            } 
-
-            &:focus {
-                outline: 0;
-            }
-
-            &:disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
             }
         }
 
