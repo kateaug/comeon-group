@@ -5,6 +5,8 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 10px 0 20px 0;
+        border-bottom: 1px solid #dbd8d8;
+        margin-bottom: 20px;
     }
 
     .GamesDashboard {
@@ -12,14 +14,15 @@
         flex-direction: column-reverse;
         gap: 20px;
 
+
         .GamesCards {
             display: flex;
             flex-direction: column;
             gap: 15px;
             width: 100%;
+            padding-top: 5px;
 
             h2 {
-               border-bottom: 1px solid #dbd8d8;
                padding-bottom: 5px;
                margin-bottom: 5px;
             }
@@ -39,6 +42,14 @@
         .GamesDashboard  {
             flex-direction: row;
             gap: 40px;
+
+            .GamesCards {
+                padding-top: 0;
+
+                h2 {
+                    font-size: 25px;
+                }
+            } 
         }
     }
 }

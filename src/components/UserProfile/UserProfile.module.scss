@@ -21,7 +21,7 @@
     }
 
     button {
-        padding: 8px 26px;
+        padding: 8px 30px;
         font-size: 14px;
         margin-top: 15px;
     }
@@ -31,8 +31,9 @@
     .UserProfile {
         align-items: flex-start;
 
-        button {
-            width: 30%;
+        .UserProfileDetails > h2 {
+            font-size: 25px;
         }
+
     }
 }
