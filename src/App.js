@@ -25,6 +25,7 @@ function App() {
           </AuthProvider>
         </BrowserRouter>
       </div>
+      <div className='Footer'/>
     </>
   );
 }
