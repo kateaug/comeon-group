@@ -1,5 +1,7 @@
 import React from 'react';
 import css from './Message.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 const Message = props => {
   let kind;
@@ -19,7 +21,7 @@ const Message = props => {
 
   function defaultMessage(kind) {
     if (kind === 'error') {
-      return `Something went wrong... Please try again.`;
+      return `Something went wrong. Please try again.`;
     }
     return '';
   }
@@ -29,22 +31,10 @@ const Message = props => {
       style={{
         padding: props.padding ? props.padding : '0'
       }}>
-      {props.kind === 'success' && !props.noicon && (
-        <svg
-          version='1.1'
-          xmlns='http://www.w3.org/2000/svg'
-          xmlnsXlink='http://www.w3.org/1999/xlink'
-          x='0px'
-          y='0px'
-          viewBox='0 0 512 512'
-          xmlSpace='preserve'>
-          <polygon
-            fill={'#44e09f'}
-            points='202.624,478.016 0,291.36 70.512,214.8 191.968,326.656 431.44,33.984 512,99.904 '
-          />
-        </svg>
-      )}
-      <p className={kind}>{props.children || defaultMessage(props.kind)}</p>
+        {props.kind === 'error' && !props.noicon && (
+          <FontAwesomeIcon data-icon='error' icon={faTriangleExclamation}/>
+        )}
+        <p className={kind}>{props.children || defaultMessage(props.kind)}</p>
     </div>
   );
 };

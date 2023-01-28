@@ -8,8 +8,9 @@ function SelectedGame () {
     const navigate = useNavigate();
 
     useEffect(() => 
-      window.comeon.game.launch(code),
-	[code]);
+      window.comeon.game.launch(code)
+    , [code]);
+
     return (
       <div className={css.SelectedGame}>
           <Button iconBack onClick={() => navigate(-1)} type='submit' kind='secondary' text='go back' />

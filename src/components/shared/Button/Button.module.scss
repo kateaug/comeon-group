@@ -31,6 +31,16 @@
         opacity: 0.5;
         cursor: not-allowed;
     }
+
+    svg {
+        &[data-atr='btn-forward'] {
+           margin-left: 10px
+        }
+
+        &[data-atr='btn-back'] {
+            margin-right: 10px
+         }
+    }
 }
 
 .ButtonSecondary {

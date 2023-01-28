@@ -4,13 +4,13 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 10px 0;
+        padding: 10px 0 20px 0;
     }
 
     .GamesDashboard {
         display: flex;
         flex-direction: column-reverse;
-        gap: 30px;
+        gap: 20px;
 
         .GamesCards {
             display: flex;
@@ -20,6 +20,8 @@
 
             h2 {
                border-bottom: 1px solid #dbd8d8;
+               padding-bottom: 5px;
+               margin-bottom: 5px;
             }
         }
     }
@@ -27,14 +29,16 @@
     
 }
 
-@media (min-width:801px) { 
+@media (min-width: 768px) { 
     .Games {
         .GamesProfile {
             flex-direction: row;
+            padding: 10px 0 5px 0;
         }
 
         .GamesDashboard  {
             flex-direction: row;
+            gap: 40px;
         }
     }
 }

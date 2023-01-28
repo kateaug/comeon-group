@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { string, arrayOf, number, shape} from 'prop-types';
 import css from './GameCard.module.scss'
 import Button from '../../shared/Button/Button';
@@ -10,9 +9,9 @@ function GameCard({ game }) {
 
  return (
     <div className={css.GameCard}>
-              <img
-              src={game.icon}
-              alt={game.name}
+          <img
+            src={game.icon}
+            alt={game.name}
           />
         <div className={css.GameCardDetails}>
             <h3>{game.name}</h3>

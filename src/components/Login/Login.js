@@ -74,7 +74,7 @@ const handleSubmit =  (event) => {
                 <FontAwesomeIcon icon={faLock} />
             </label>
             <Button kind='primary' disabled={emptyData} type='submit' text='log in' />
-            {notEmptyObject(error) && <Message kind='error' /> }
+            {notEmptyObject(error) && <Message padding={'8px'} noIcon={false} kind='error' /> }
         </form>
         )}
     </div>

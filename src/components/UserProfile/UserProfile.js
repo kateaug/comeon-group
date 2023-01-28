@@ -25,7 +25,7 @@ function UserProfile () {
                 <p>{authData.player.event}</p>
             </div>
 		 </div>
-         <Button kind='primary' type='submit' onClick={handleLogout} text='log out' />
+         <Button iconBack kind='primary' type='submit' onClick={handleLogout} text='log out' />
         </div>
     )
 }

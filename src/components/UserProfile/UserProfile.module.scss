@@ -4,6 +4,7 @@
     align-items: center;
     margin-bottom: 20px;
     width: 100%;
+    font-weight: bold;
 
     .UserProfileDetails {
         display: flex;
@@ -15,21 +16,23 @@
             margin-right: 20px;
             max-width: 100%;
             height: auto;
-
         }
 
     }
 
     button {
-        width: 30%;
-        padding: 8px;
+        padding: 8px 26px;
         font-size: 14px;
         margin-top: 15px;
     }
 }
 
-@media (min-width:801px) { 
+@media (min-width: 768px) { 
     .UserProfile {
         align-items: flex-start;
+
+        button {
+            width: 30%;
+        }
     }
 }
