@@ -15,7 +15,7 @@
 
         .LoginLabel {
             position: relative;
-            width: 50%;
+            width: 100%;
         }
 
         svg {
@@ -47,3 +47,15 @@
 
     }
 }
+
+@media (min-width: 768px) {
+    .Login {
+        .LoginForm {
+            .LoginLabel {
+                width: 40%;
+            }
+        } 
+    }
+}
+
+           

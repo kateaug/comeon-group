@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { string, func, bool} from 'prop-types';
+import { string, func } from 'prop-types';
 import css from './GamesCategories.module.scss';
 import Spinner from '../../shared/Spinner/Spinner';
 import Message from '../../shared/Message/Message';
 import * as games from '../../../api/games';
 
-function GamesCategories({ categoryType, selectCategoryType, disabled = false }) {
+function GamesCategories({ categoryType, selectCategoryType }) {
 	const [gamesCategories, setGamesCategories] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -34,7 +34,6 @@ function GamesCategories({ categoryType, selectCategoryType, disabled = false })
                     type='button'
                     className={css.GamesCategoriesBtn}
                     onClick={selectCategoryType}
-                    disabled={disabled}
                     >
                     {category.name}
                 </button>
@@ -50,5 +49,4 @@ export default GamesCategories;
 GamesCategories.propTypes = {
    categoryType: string.isRequired,
    selectCategoryType: func.isRequired,
-   disabled: bool.isRequired
 };

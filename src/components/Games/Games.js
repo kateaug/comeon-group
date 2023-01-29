@@ -56,7 +56,7 @@ function Games () {
         <div className={css.Games}>
            <div className={css.GamesProfile}>
                 <UserProfile /> 
-                <GamesSearch disabled={isEmptyArray(filteredGames)} searchGames={(e) => setSearchTem(e.target.value)} searchTerm={searchTerm} />
+                <GamesSearch searchGames={(e) => setSearchTem(e.target.value)} searchTerm={searchTerm} />
            </div>
            <div className={css.GamesDashboard}> 
                 <div className={css.GamesCards}>
@@ -68,7 +68,7 @@ function Games () {
                     {error && <Message kind='error' children='Something went wrong.' noicon /> }
                     {isEmptyArray(filteredGames) && !error && <span>We're sorry. We were not able to find a match. <br/>Try another search?</span>}
                 </div>   
-                <GamesCategories disabled={isEmptyArray(filteredGames)} selectCategoryType={(e) => setCategoryId(e.target.id)} categoryType={categoryId}/> 
+                <GamesCategories selectCategoryType={(e) => setCategoryId(e.target.id)} categoryType={categoryId}/> 
           </div> 
         </div>    
     )
